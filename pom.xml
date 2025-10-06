@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.6</version>
+		<relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>org.sukhome.pro</groupId>
+    <artifactId>prompt-builder</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>prompt-builder</name>
+    <description>The AI prompt debugging tool</description>
+    <inceptionYear>2025</inceptionYear>
+    <url>${repository.url}/${repository.path}</url>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+    <scm>
+        <connection>scm:git:git://{repository.url}/${repository.path}.git</connection>
+        <url>${repository.url}/${repository.path}</url>
+        <tag>HEAD</tag>
+    </scm>
+    <!--issueManagement>
+        <system>GitHub</system>
+        <url>${repository.url}/${repository.path}/-/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <url>${repository.url}/${repository.path}/-/pipelines</url>
+    </ciManagement-->
+
+    <modules>
+        <module>prompt-builder-back-java</module>
+        <!--module>prompt-builder-back-python</module-->
+        <module>prompt-builder-config</module>
+        <!--module>prompt-builder-web</module-->
+    </modules>
+
+    <properties>
+		<java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- -->
+        <repository.url>https://github.com</repository.url>
+        <repository.path>pumpkinheadguyy/prompt-builder</repository.path>
+        <!-- dependencies -->
+        <spring-ai.version>1.0.3</spring-ai.version>
+    </properties>
+
+    <dependencies>
+    </dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.ai</groupId>
+				<artifactId>spring-ai-bom</artifactId>
+				<version>${spring-ai.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
